@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/cart.css">   
+     <meta charset="utf-8">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,900" rel="stylesheet">
+
+    <title>BN Semijoias</title>
+
+</head>
+
+<body>
+
+
+    <nav class="navbar navbar-expand-lg bg-transparent fixed-top" id="NavbarHomepage">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Brenda Nunes</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Categorias
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Anéis</a></li>
+                            <li><a class="dropdown-item" href="#">Brincos</a></li>
+                            <li><a class="dropdown-item" href="#">Colares</a></li>
+                            <li><a class="dropdown-item" href="#">Pulseiras/Braceletes</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Novidades</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Coleções
+                        </a>
+                        <ul class="dropdown-menu">
+
+
+                            <li><a class="dropdown-item" href="#">Oliva</a></li>
+                            <li><a class="dropdown-item" href="#">Florescer</a></li>
+                            <li><a class="dropdown-item" href="#">Pedras Naturais</a></li>
+
+                        </ul>
+
+                        <li class="nav-item dropdown">
+                            <div class="container-fluid">
+                                <a class="navbar-brand" href="pages/cart.ejs">
+                                    <img src="images\cart.svg" style="width: 4%; margin-left: 800px;" alt="#">
+                                </a>
+                            </div>
+                        </li>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--mensagem do carrinho vazio-->
+
+   
+	<br><br>
+    <br>
+
+   <div class="CartContainer">
+   	   <div class="Header">
+   	   	<h3 class="Heading">CARRINHO</h3>
+   	   	
+   	   </div>
+
+   	   <div class="Cart-Items">
+
+          <% cart.forEach(function(item) { %>
+            <div class="image-box">
+                <img src="images/<%= item.image %>" style={{ height="120px" }} />
+            </div>
+            <div class="about">
+                <h1 class="title">
+                    <%= item.Nome %>
+                </h1>
+                <% if(item.desconto){ %>
+                    <h3 class="subtitle">$
+                        <%= item.desconto %>
+                    </h3>
+                    <%  }else { %>
+                        <h3 class="subtitle">$
+                            <%= item.preco %>
+                        </h3>
+                        <% } %>
+
+
+                           
+            </div>
+            
+            
+
+            <div class="prices">
+
+                <form action="/remove_produto" method="post" class="remove">
+
+                    <input type="hidden" name="id_produto" value="<%= item.id_produto %>">
+                    <input type="submit" class="remove" name="remove_btn" value="Remover">
+                </form>
+
+                <% if(item.desconto){ %>
+                    <div class="amount">$
+                        <%= item.desconto*item.quantity %>
+                    </div>
+                    <%  }else { %>
+                        <div class="amount">$
+                            <%= item.preco*item.quantity %>
+                        </div>
+                        <% } %>
+                        <form action="/edit_product_quantity" method="post" class="counter">
+
+                            <input type="hidden" value="<%= item.id_produto %>" name="id_produto">
+                            <input type="submit" value="-" class="btn" name="decrease_product_quantity">
+                            <input type="text" name="quantity" value="<%= item.quantity %>" readonly>
+                            <input type="submit" value="+" class="btn" name="increase_product_quantity">
+            
+                        </form>
+                            
+
+            </div>
+            <% }) %>
+   	   </div>
+       
+
+   	   
+   	 <hr> 
+   	 <div class="checkout">
+   	 <div class="total">
+   	
+   	 	<div class="total-amount"><% total %></div>
+   	 </div>
+   	 <button class="button"> Levar </button></div>
+   </div>
+
+        
+        <script src="https://code.jquery.com/jquery-2.2.4.js" charset="utf-8"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+
+    </body>
+    
+    </html>
+
+   

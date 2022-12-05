@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <title>BN Semijoias</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <!--Importação do meu css-->
+    <link rel="stylesheet" type="text/css" href="css/produto.css">
+   
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/wave.css">
+
+</head>
+<!--
+Testa isso no seu CSS, talvez resolva.
+
+Basicamente, estou utilizando os seletores para definir as dimensões de uma img 
+dentro das classes do carousel, que é responsivo quanto a isso.
+
+.carousel-inner > .carousel-item > img {
+  width: 700px;
+  height: 400px; 
+}
+-->
+
+<body>
+
+
+    <!--Navbar -->
+    <!--A tipografia da navbar é 'dancing script'-->
+    <nav class="navbar navbar-expand-lg bg-light fixed-top" id="NavbarHomepage">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Brenda Nunes</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Categorias
+                </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Anéis</a></li>
+                            <li><a class="dropdown-item" href="#">Brincos</a></li>
+                            <li><a class="dropdown-item" href="#">Colares</a></li>
+                            <li><a class="dropdown-item" href="#">Pulseiras/Braceletes</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Novidades</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Coleções
+                </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Oliva</a></li>
+                            <li><a class="dropdown-item" href="#">Florescer</a></li>
+                            <li><a class="dropdown-item" href="#">Pedras Naturais</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <br><br><br>
+
+    
+
+
+    <div class="row" id="Produto">
+        <div class="col-9">
+            <strong>Nome do Produto</strong>
+        </div>
+        <div class="col-4">
+            <strong>Descrição</strong> <br> ipsum dolor sit amet consectetur adipisicing elit. Unde, perspiciatis consequatur dolorum totam quasi ratione, dolores quis soluta provident id blanditiis, quos sapiente quae modi laborum iure deleniti cum expedita.
+            <form class="p-3 Produto text-center text-white mt-3 cursor action=" action="/add_to_cart" method="post"></form>
+                          <input type="hidden" name="id" value="<%= item.id_produto  %>"> 
+                          <input type="hidden" name="Nome" value="<%= item.Nome  %>">  
+                          <input type="hidden" name="preco" value="<%= item.preco %>">  
+                          <input type="hidden" name="desconto" value="<%= item.desconto  %>">  
+                          <input type="hidden" name="quantidade" value="1">  
+                          <input type="hidden" name="image" value="<%= item.image %>">   
+                        <input class="text-uppercase" type="submit" value="Adicionar ao carrinho">
+        </div>
+        <div class="col-6"><img src="prisao.jpg" alt="ProdutoImage">
+        </div>
+    </div>
+
+
+    <!--
+Conteiner de todos produtos
+    <div class="conteiner mb-5 mt--5">
+        <div class="row">
+
+
+
+
+            <% result.forEach(function(item
+            ) { %>
+                <div class="col-md-4 ">
+                    <div class="card mt-3">
+                        <div class="product-1 align-itens-center p-2 text-center">
+                            <img src="images/<%= item.image %>" alt="" class="roundend">
+                            <h3>
+                                <%= item.Nome %>
+                            </h3>
+
+                            <% if(item.desconto){ %>
+
+                                <h2><strong class="red"><%= item.desconto %></strong></h3>
+            <h2 style="text-decoration:line-through"><strong class="red"><%= item.preco %></strong></h3>
+
+                <% }else{ %>
+
+                    <h2><strong class="red"><%= item.preco %></strong></h3>
+
+                        <% } %>
+
+        </div>
+        <form class="p-3 Produto text-center text-white mt-3 cursor action=" action="/add_to_cart" method="post"></form>
+        <input type="hidden" name="id" value="<%= item.id_produto  %>">
+        <input type="hidden" name="Nome" value="<%= item.Nome  %>">
+        <input type="hidden" name="preco" value="<%= item.preco %>">
+        <input type="hidden" name="desconto" value="<%= item.desconto  %>">
+        <input type="hidden" name="quantidade" value="1">
+        <input type="hidden" name="image" value="<%= item.image %>">
+        <input class="text-uppercase" type="submit" value="Adicionar ao carrinho">
+
+        <div class="p-3 Produto text-center text-white mt-3 cursor">
+            <span class="text-uppercase">Adicionar ao  carrinho</span>
+        </div>
+    </div>
+    </div>
+    <% }) %>
+        -->
+
+
+
+    </div>
+    </div>
+
+
+
+
+
+
+<br>
+
+
+    <footer>
+        <div class="waves">
+            <div class="wave" id="wave1"></div>
+            <div class="wave" id="wave2"></div>
+            <div class="wave" id="wave3"></div>
+            <div class="wave" id="wave4"></div>
+        </div>
+        <ul class="social_icon">
+            <li>
+                <a href="">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href=" ">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+            </li>
+
+        </ul>
+        <ul class="menu">
+            <li>
+                <a href="">Home</a>
+            </li>
+            <li>
+                <a href="">Sobre nós</a>
+            </li>
+            <li>
+                <a href="">Garantia</a>
+            </li>
+        </ul>
+        <p>Direitos Reservados</p>
+    </footer>
+
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</body>
+
+</html>

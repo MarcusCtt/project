@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Fredoka:wght@300&display=swap');
+
+
+
+
+.carousel-inner>.carousel-item>img {
+    height: 50vh;
+}
+
+.product-1>img {
+    height: 20vh;
+    width: 29vh;
+}
+
+.card {
+    border: 0;
+    outline: 0;
+    background-color: #fff;
+    border-radius: 25px;
+}
+
+.card:hover {
+    transform: translateY(-15px);
+    transition: transform .3s;
+}
+
+.info {
+    line-height: 17px;
+}
+
+.Produto {
+    background: #ffc0ff;
+}
+
+.Produto:hover {
+    opacity: .8;
+}
+
+.cursor {
+    cursor: pointer;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.col-md-4 {
+    padding: 7px;
+   
+}
+
+#Comprar{
+    border-width: 0px;
+}
